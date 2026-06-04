@@ -9,6 +9,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "isort>=8.0.1",
+    "pyinstaller>=6.20.0",
     "ruff>=0.15.15",
 ]
 

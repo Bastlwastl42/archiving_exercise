@@ -1,0 +1,6 @@
+Package: archiving-exercise
+Version: 1.0
+Architecture: amd64
+Recommends: python3
+Maintainer: Sebastian Lehrack <sebastian.lehrack@posteo.net>
+Description: This is an archiving exercise. Given a user group name, the python script creates tar archives of each user's home folder of the given group.

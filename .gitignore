@@ -1,3 +1,6 @@
-archive_exercise.log
+*.log
+*.spec
 .venv
 .idea
+build
+__pycache__
