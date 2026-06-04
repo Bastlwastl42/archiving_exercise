@@ -1,10 +1,10 @@
 # Archiving Exercise
 
-This is an exercise in archiving. The given script archive-exercise.py
+This is an exercise in archiving. The given python script archive-exercise.py
 
 - has a mandatory CLI input -g/--group that must specify a user group.
 - if that group is available, the scripts finds all available user of that group and their respective home folders.
-- each of those home folders are aded fully to a tar archive and stored in a archive path.
+- each of those home folders are added fully to a tar archive and stored in a archive path.
 
 ## Usage
 
@@ -55,18 +55,26 @@ usually `/tmp`. Continuous logfiles are created containing the same content as t
 
 ## Notes on Testing
 
-A dockerfile is provided that can setup a test environment where
-- the build debian package is copied and installed
+A dockerfile is provided that can set up a test environment where
+
+- the build Debian package is copied and installed
 - a test group and test users are created for that group
 - running the build docker image has a valid execution of the script as entrypoint.
 
 ```shell
 # within project root
 docker build -t test_archive .
-# to run with predefind test entrypoint
+# to run with predefined test entrypoint
 docker run test_archive
 
 # to run docker to explore
 docker run -it test_archive
 ```
 
+## Further Notes
+
+I decided to use pyInstaller to bundle a single-file application to ensure proper execution. The resulting file is
+rather big since it contains required runtime data to execute without a python installation. It would have been also
+possible to make python and the logging module loguru a requirement in the Debian package and thus resulting in probably
+smaller package size, but obviously more demands for the installation. And then I decided not to overthink, and use a
+path where I can be certain the application is running at least in the Debian based test environment I had at hand. 
